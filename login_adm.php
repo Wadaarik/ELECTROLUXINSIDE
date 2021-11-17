@@ -34,9 +34,6 @@ include './back/back.php';
                     else if ($_GET["error"] == "connection"){
                         echo "<p class='alert'>Connectez-vous pour accéder au portail.</p>";
                     }
-                    else if ($_GET["error"] == "stmtfailed"){
-                        echo "<p class='alert'>Quelque chose s'est mal passé, merci de réessayer dans un instant.</p>";
-                    }
                 }
                 ?>
                 <form action="./back/back.php" method="post">
