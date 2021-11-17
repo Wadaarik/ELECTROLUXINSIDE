@@ -5,6 +5,15 @@ include './back/back.php';
 session_start();
 $session = $_SESSION['login_admin'];
 
+// CHECK MAIL ADMIN SESSION
+$sql_check_admin = "SELECT * FROM `electrolux_adm` WHERE adm_id = '".$session."'";
+$res_check_admin = $conn->query($sql_check_admin);
+
+if (mysqli_num_rows($res_check_admin) !== 0) {
+    echo $session;
+}else{
+    header('location: ./login_adm.php?error=connection');
+}
 if (empty($session)){
     header('location: ./login_adm.php?error=connection');
 }

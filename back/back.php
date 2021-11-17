@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
     $sql_users = "SELECT * FROM `electroluxinside` ORDER BY id DESC";
     $res_users = $conn->query($sql_users);
 
-
+//LOGIN ADMIN
 if(isset($_POST['submit_adm'])){
     if (!empty($_POST['login_admin']) || !empty($_POST['password_an'])) {
         $id_adm = htmlspecialchars($_POST['login_admin']);
@@ -60,6 +60,8 @@ if(isset($_POST['submit_adm'])){
     }
 }
 
+
+//AJOUTE ADMIN
 if(isset($_POST['submit_add_adm'])){
     if (!empty($_POST['add_login_admin']) || !empty($_POST['add_password_an'])) {
 
