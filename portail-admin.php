@@ -2,6 +2,12 @@
 $page = 'Portail administrateur';
 include './back/gestion.php';
 include './back/back.php';
+session_start();
+$session = $_SESSION['login_admin'];
+
+if (empty($session)){
+    header('location: ./login_adm.php?error=connection');
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">

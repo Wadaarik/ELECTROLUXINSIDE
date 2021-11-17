@@ -33,14 +33,14 @@ include_once './back/head.php';
                     <div class="form-row">
                         <label for="email_usr">Email</label>
                         <div class="input">
-                            <input type="email" name="email_usr" id="email_usr" placeholder="monemail@mail.com">&nbsp;
+                            <input type="email" name="email_usr" id="email_usr" placeholder="monemail@mail.com" required>&nbsp;
                             <div class="icons"><img src="./assets/img/email.png" alt="email icon Electrolux Inside"></div>
                         </div>
                     </div>
                     <div class="form-row">
                         <label for="password_usr">Mot de passe</label>
                         <div class="input">
-                            <input type="password" name="password_usr" id="password_usr" placeholder="••••••••">&nbsp;
+                            <input type="password" name="password_usr" id="password_usr" placeholder="••••••••" required>&nbsp;
                             <div style="cursor: pointer" id="visible_pwd" class="icons"><img src="./assets/img/lock.png" alt="visibility icon Electrolux Inside"></div>
                          </div>
                     </div>
