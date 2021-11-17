@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'Electrolux';
+  src: url('../fonts/ElectroluxSans_3_Regular.otf');
+}
+@font-face {
+  font-family: 'Electrolux_bold';
+  src: url('../fonts/ElectroluxSans_5_Bold.otf');
+}
+
+$electrolux: 'Electrolux';
+$electroluxBold: 'Electrolux_bold';
+$primary: #00325F;
+$secondary: #040D1D;
+$text: #707070;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+.main-content{
+  height: 100%;
+  .container{
+    background-image: radial-gradient(#00325F, #040D1D);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    .chat, .users{
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin: 20px;
+      width: -moz-available;
+      h2{
+        font-family: $electroluxBold;
+        font-size: xx-large;
+        color: $primary;
+        padding-bottom: 15px;
+      }
+    }
+    .chat-contain {
+      height: 50vh;
+      overflow-y: scroll;
+      padding: 5px;
+      ul {
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          padding: 15px 0;
+          font-family: $electroluxBold;
+          color: $secondary;
+          font-size: 18px;
+          p{
+            line-height: 20px;
+            font-family: $electrolux;
+          }
+          .infos{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .usr_msg{
+              color: $primary;
+              font-size: 14px;
+              margin-bottom: 5px;
+            }
+            .usr_date{
+              color: rgba(1, 1, 1, .4);
+              font-size: 12px;
+            }
+          }
+          &:hover{
+            background: rgba(0, 84, 160, 0.2);
+            p{
+              background: #0054A0;
+              color: white;
+            }
+          }
+        }
+        hr{
+          border: 1px solid rgba(1, 1, 1, 0.1);
+        }
+      }
+    }
+    .users-contain {
+      height: 50vh;
+      overflow-y: scroll;
+      padding: 5px;
+      ul {
+        li {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          padding: 15px 0;
+          font-family: $electroluxBold;
+          color: $secondary;
+          font-size: 18px;
+          span{
+            color: $primary;
+            font-family: $electrolux;
+          }
+        }
+        hr{
+          border: 1px solid rgba(1, 1, 1, 0.1);
+        }
+      }
+    }
+  }
+}
