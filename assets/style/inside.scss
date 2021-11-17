@@ -79,12 +79,18 @@ table {
     flex-flow: column;
     align-items: center;
     justify-content: space-around;
+    .row{
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
     .chat, .users{
       background: white;
       padding: 30px;
       border-radius: 15px;
       margin: 20px;
-      width: -moz-available;
+      flex: 1;
       h2{
         font-family: $electroluxBold;
         font-size: xx-large;
@@ -198,6 +204,16 @@ table {
           border-radius: 15px;
           padding: 10px 20px;
           color: rgba(255, 0, 0, 0.83);
+          font-family: $electrolux;
+          font-size: 18px;
+          width: max-content;
+          margin: 20px 0;
+        }
+        .success{
+          background: rgba(17, 255, 0, 0.11);
+          border-radius: 15px;
+          padding: 10px 20px;
+          color: rgba(26, 255, 0, 0.83);
           font-family: $electrolux;
           font-size: 18px;
           width: max-content;

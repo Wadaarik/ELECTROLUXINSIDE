@@ -69,7 +69,7 @@ if(isset($_POST['submit_add_adm'])){
         $sql_add_adm = "SELECT * FROM `electrolux_adm` WHERE `adm_id` = '".$adm_id."'";
         $res_add_adm = $conn->query($sql_add_adm);
 
-        if (mysqli_num_rows($res_p_adm) !== 0) {
+        if (mysqli_num_rows($res_add_adm) !== 0) {
             header('location: ../portail-admin.php?error=loginexist');
         }else{
             $sql = "INSERT INTO `electrolux_adm` (adm_id, adm_password) VALUES (?, ?)";
@@ -83,6 +83,7 @@ if(isset($_POST['submit_add_adm'])){
             mysqli_stmt_bind_param($stmt, "ss", $adm_id, $has_pwd);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
+            header('location: ../portail-admin.php?error=addAdmin');
         }
 
     }else{

@@ -73,12 +73,18 @@ table {
   align-items: center;
   justify-content: space-around;
 }
+.main-content .container .row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .main-content .container .chat, .main-content .container .users {
   background: white;
   padding: 30px;
   border-radius: 15px;
   margin: 20px;
-  width: -moz-available;
+  flex: 1;
 }
 .main-content .container .chat h2, .main-content .container .users h2 {
   font-family: "Electrolux_bold";
@@ -190,6 +196,16 @@ table {
   border-radius: 15px;
   padding: 10px 20px;
   color: rgba(255, 0, 0, 0.83);
+  font-family: "Electrolux";
+  font-size: 18px;
+  width: max-content;
+  margin: 20px 0;
+}
+.main-content .container .form .form_container .success {
+  background: rgba(17, 255, 0, 0.11);
+  border-radius: 15px;
+  padding: 10px 20px;
+  color: rgba(26, 255, 0, 0.83);
   font-family: "Electrolux";
   font-size: 18px;
   width: max-content;
