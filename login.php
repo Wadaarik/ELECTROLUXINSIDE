@@ -19,7 +19,7 @@ include_once './back/head.php';
                         echo "<p class='alert'>Merci d'utiliser un email valide.</p>";
                     }
                     else if ($_GET["error"] == "wronglogin"){
-                        echo "<p class='alert'>Mauvais mot de passe.</p>";
+                        echo "<p class='alert'>Mauvais email ou mot de passe.</p>";
                     }
                     else if ($_GET["error"] == "connection"){
                         echo "<p class='alert'>Connectez-vous pour assister au live.</p>";

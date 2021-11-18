@@ -46,6 +46,7 @@ if(isset($_POST['submit_adm'])){
                 var_dump($checkAdminPass);
 
                 if ($checkAdminPass === true) {
+                    session_start();
                     $_SESSION['login_admin'] = $id_adm;
                     header('location: ../portail-admin.php');
                 } else {

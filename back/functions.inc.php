@@ -64,26 +64,3 @@ function addUser($conn, $email, $ip_usr, $connect_time)
     exit();
 
 }
-
-//UPDATE USER INFORMATIONS IN TABLE
-function updateUser($conn, $email, $ip_usr, $connect_time)
-{
-
-
-    $sql = "UPDATE `electroluxinside` SET `ip_usr`= '".$ip_usr."',`connect_time`= '".$connect_time."' WHERE `email`= '".$email."'";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header('location: ../login.php?error=stmtfailed');
-        exit();
-    }
-
-    mysqli_stmt_bind_param($stmt, "ss", $ip_usr, $connect_time);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-
-    session_start();
-    $_SESSION['email'] = $email;
-    header('location: ../live.php');
-    exit();
-
-}

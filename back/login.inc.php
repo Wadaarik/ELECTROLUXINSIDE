@@ -25,7 +25,7 @@ if (isset($_POST["submit"])){
     $ip_usr = getUserIpAddr();
 
     //CHECK MAIL
-    $sql_check_user = "SELECT * FROM `electroluxinside` WHERE `email` = '".$email."'";
+    $sql_check_user = "SELECT * FROM `users` WHERE `email` = '".$email."'";
     $res_check_user = $conn->query($sql_check_user);
 
     if (mysqli_num_rows($res_check_user) !== 0) {
@@ -36,26 +36,21 @@ if (isset($_POST["submit"])){
         while($row = $res->fetch_array()) {
 
             $checkPass = password_verify($password, $row[2]);
-            if ((($row[0] === '1') && $checkPass === true) || (($row[0] === '2') && $checkPass === true) ){
-                updateUser($conn, $email, $ip_usr, $connect_time);
-            }else{
-                header('location: ../login.php?error=wronglogin');
-            }
-        }
-    }else{
-    //        CHECK PASSWORD
-        $sql = "SELECT * FROM `pwd_g`";
-        $res = $conn->query($sql);
+            var_dump($checkPass);
 
-        while($row = $res->fetch_array()) {
-
-            $checkPass = password_verify($password, $row[2]);
-            if ((($row[0] === '1') && $checkPass === true) || (($row[0] === '2') && $checkPass === true) ){
+            if ((($row[0] === '1') && $checkPass === true)){
                 addUser($conn, $email, $ip_usr, $connect_time);
             }else{
                 header('location: ../login.php?error=wronglogin');
             }
+//            if ((($row[0] === '1') && $checkPass === true) || (($row[0] === '2') && $checkPass === true) ){
+//                addUser($conn, $email, $ip_usr, $connect_time);
+//            }else{
+//                header('location: ../login.php?error=wronglogin');
+//            }
         }
+    }else{
+        header('location: ../login.php?error=wronglogin');
     }
 
 
