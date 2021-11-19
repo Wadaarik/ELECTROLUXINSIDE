@@ -87,14 +87,22 @@ table {
   max-width: 675px;
   width: 100%;
 }
+.container .register-form {
+  flex: 3 !important;
+}
+.container .register-form .register-section {
+  width: 35vw !important;
+}
 .container .form {
   background: #040D1D;
   height: 100%;
   display: flex;
   flex: 2;
-  min-width: 560px;
   align-items: center;
   justify-content: center;
+}
+.container .form a {
+  font-family: "Electrolux";
 }
 .container .form .chat_container {
   width: 17vw;
@@ -109,8 +117,8 @@ table {
   background: white;
   border-radius: 15px;
   padding: 10vh 3vw;
-  width: 25vw;
-  min-width: 350px;
+  width: 20vw;
+  min-width: 300px;
   min-height: 380px;
 }
 .container .form .form_container h2 {
@@ -118,6 +126,11 @@ table {
   font-family: "Electrolux_bold";
   font-weight: 400;
   font-size: xx-large;
+}
+.container .form .form_container small {
+  color: #707070;
+  margin: 10px 0;
+  font-family: "Electrolux";
 }
 .container .form .form_container .alert {
   background: rgba(255, 0, 0, 0.11);
@@ -135,6 +148,10 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.container .form .form_container form .register {
+  flex-flow: row wrap !important;
+  justify-content: space-between !important;
 }
 .container .form .form_container form .form-row {
   display: flex;
@@ -206,7 +223,7 @@ table {
 .live {
   background-image: radial-gradient(#00325F, #040D1D 70%);
   display: flex;
-  flex-flow: row wrap-reverse;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   overflow-y: scroll;
@@ -229,6 +246,9 @@ table {
 .live .form .input textarea:focus {
   border: 1px #00325F solid !important;
   box-shadow: 0 1px 12px #0054A0 !important;
+}
+.live iframe {
+  margin: 20px;
 }
 @media screen and (max-width: 1200px) {
   .live {

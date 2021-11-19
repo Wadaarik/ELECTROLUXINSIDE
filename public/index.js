@@ -18,13 +18,3 @@ togglePassword_an.addEventListener('click', function (e) {
     password_an.setAttribute('type', type);
 });
 
-// ==============================================
-
-const togglePassword_aan = document.querySelector('#visible_pwd');
-const password_aan = document.querySelector('#add_password_an');
-
-togglePassword_aan.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password_aan.getAttribute('type') === 'password' ? 'text' : 'password';
-    password_aan.setAttribute('type', type);
-});

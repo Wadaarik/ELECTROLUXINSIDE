@@ -12,6 +12,7 @@ if (empty($_SESSION['email'])){
 
 <div class="main-content">
     <div class="container live">
+        <iframe src="https://player.vimeo.com/video/124381218?h=0f574a5928&color=ef9018&title=0&byline=0&portrait=0" width="800" height="440" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         <div class="form">
             <section class="form_container chat_container">
                 <h2>Envoyer un message</h2>
@@ -25,7 +26,7 @@ if (empty($_SESSION['email'])){
                     }
                 }
                 ?>
-                <form action="./back/back.php" method="post">
+                <form action="./back/back.php" id="chat_form" method="post">
                     <div class="form-row">
                         <label for="message_usr">Message</label>
                         <div class="input">
@@ -37,7 +38,6 @@ if (empty($_SESSION['email'])){
                 </form>
             </section>
         </div>
-        <iframe src="https://player.vimeo.com/video/124381218?h=0f574a5928&color=ef9018&title=0&byline=0&portrait=0" width="950" height="540" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 </div>
 <?php
 include_once './back/footer.php';

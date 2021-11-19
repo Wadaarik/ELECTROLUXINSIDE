@@ -23,10 +23,14 @@ if (empty($session)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
     <link type="image/x-icon" href="./assets/img/favicon.ico" rel="icon">
     <link type="image/x-icon" href="./assets/img/favicon.ico" rel="shortcut icon">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/style/inside.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title><?= $page ?> | Electrolux Inside</title>
 </head>
 <body>
@@ -36,89 +40,34 @@ if (empty($session)){
             <section class="chat">
                 <h2>Messages reçus :</h2>
                 <section class="chat-contain">
-                    <?php
-                    while ($row_msg = $res_query->fetch_row()){
-                        ?>
-                        <ul>
-                            <li>
-                                <div class="infos">
-                                    <span class="usr_msg"><?= $row_msg[1] ?></span>
-                                    <span class="usr_date"><?= $row_msg[3] ?></span>
-                                </div>
-                                &nbsp;<p><?= $row_msg[2] ?></p>
-                            </li>
-                            <hr />
-                        </ul>
-                        <?php
-                    }
-                    ?>
+                    <ul id="chat-contain">
+                    </ul>
                 </section>
             </section>
-            <section class="users">
-                <h2>Utilisateurs présents :</h2>
+            <section id="users" class="users">
+                <h2>Participants présents :</h2>
                 <section class="users-contain">
-                    <?php
-                    while ($row_users = $res_users->fetch_row()){
-                        ?>
-                        <ul>
-                            <li>
-                                <ul>
-                                    <li>Utilisateur :&nbsp;<span><?= $row_users[1] ?></span></li>
-                                    <li>IP :&nbsp;<span><?= $row_users[2] ?></span></li>
-                                    <li>Date de connection :&nbsp;<span><?= $row_users[3] ?></span></li>
-                                </ul>
-                            </li>
-                            <hr />
-                        </ul>
-                        <?php
-                    }
-                    ?>
-                </section>
-            </section>
-        </div>
-        <div class="row">
-            <section class="form">
-                <section class="admin-contain">
-                    <div class="form">
-                        <div class="form_container">
-                            <h2>Ajouter un administrateur :</h2>
-                            <?php
-                            if (isset($_GET["error"])){
-                                if ($_GET["error"] == "emptyinput"){
-                                    echo "<p class='alert'>Merci de remplir tous les champs.</p>";
-                                }else if ($_GET["error"] == "loginexist"){
-                                    echo "<p class='alert'>L'identifiant choisi existe déjà.</p>";
-                                }else if ($_GET["error"] == "stmtfailed"){
-                                    echo "<p class='alert'>Quelque chose s'est mal passé, merci de réessayer dans un instant.</p>";
-                                }else if ($_GET["error"] == "addAdmin"){
-                                    echo "<p class='success'>Administrateur ajouté.</p>";
-                                }
-                            }
-                            ?>
-                            <form action="./back/back.php" method="post">
-                                <div class="form-row">
-                                    <label for="add_login_admin">Identifiant</label>
-                                    <div class="input">
-                                        <input type="text" name="add_login_admin" id="add_login_admin" placeholder="Identifiant" required>
-                                        <div class="icons"><img src="./assets/img/user.png" alt="user icon Electrolux Inside"></div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <label for="add_password_an">Mot de passe</label>
-                                    <div class="input">
-                                        <input type="password" name="add_password_an" id="add_password_an" placeholder="••••••••" required>
-                                        <div style="cursor: pointer" id="visible_pwd" class="icons"><img src="./assets/img/lock.png" alt="visibility icon Electrolux Inside"></div>
-                                    </div>
-                                </div>
-                                <button type="submit" id="submit" name="submit_add_adm">Me connecter&nbsp;<i class='bx bx-right-arrow-alt'></i></button>
-                            </form>
-                        </div>
-                    </div>
+                    <ul id="users-contain">
+                    </ul>
                 </section>
             </section>
         </div>
     </div>
 </div>
-<script src="./public/index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#chat-contain").load("./back/chat.php");
+        var refreshchat = setInterval(function() {
+            $("#chat-contain").load('./back/chat.php');
+        }, 10000);
+        $.ajaxSetup({ cache: false });
+
+        $("#users-contain").load("./back/users.php");
+        var refreshusers = setInterval(function() {
+            $("#users-contain").load('./back/users.php');
+        }, 10000);
+        $.ajaxSetup({ cache: false });
+    });
+</script>
 </body>
 </html>

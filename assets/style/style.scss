@@ -92,14 +92,22 @@ table {
       width: 100%;
     }
   }
+  .register-form{
+    flex: 3 !important;
+    .register-section{
+      width: 35vw !important;
+    }
+  }
   .form{
     background: $secondary;
     height: 100%;
     display: flex;
     flex: 2;
-    min-width: 560px;
     align-items: center;
     justify-content: center;
+    a{
+      font-family: $electrolux;
+    }
     .chat_container{
       width: 17vw;
       min-width: 310px;
@@ -113,14 +121,19 @@ table {
       background: white;
       border-radius: 15px;
       padding: 10vh 3vw;
-      width: 25vw;
-      min-width: 350px;
+      width: 20vw;
+      min-width: 300px;
       min-height: 380px;
       h2{
         color: $primary;
         font-family: $electroluxBold;
         font-weight: 400;
         font-size: xx-large;
+      }
+      small{
+        color: $text;
+        margin: 10px 0;
+        font-family: $electrolux;
       }
       .alert{
         background: rgba(255, 0, 0, 0.11);
@@ -138,6 +151,10 @@ table {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        .register{
+          flex-flow: row wrap !important;
+          justify-content: space-between !important;
+        }
         .form-row{
           display: flex;
           flex-direction: column;
@@ -211,7 +228,7 @@ table {
 .live{
   background-image: radial-gradient(#00325F, #040D1D 70%);
   display: flex;
-  flex-flow: row wrap-reverse;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   overflow-y: scroll;
@@ -235,6 +252,9 @@ table {
         }
       }
     }
+  }
+  iframe{
+    margin: 20px;
   }
   @media screen and (max-width: 1200px){
     height: auto !important;

@@ -36,10 +36,18 @@ if (isset($_POST["submit"])){
         while($row = $res->fetch_array()) {
 
             $checkPass = password_verify($password, $row[2]);
-            var_dump($checkPass);
 
             if ((($row[0] === '1') && $checkPass === true)){
-                addUser($conn, $email, $ip_usr, $connect_time);
+
+                //CHECK username
+                $sql_sct_username = "SELECT usernames FROM `users` WHERE `email` = '".$email."'";
+                $res_sct_username = $conn->query($sql_sct_username);
+
+                while($usernames = $res_sct_username->fetch_row()){
+                    $username = $usernames[0];
+                    addUser($conn, $email, $ip_usr, $connect_time, $username);
+                }
+
             }else{
                 header('location: ../login.php?error=wronglogin');
             }
@@ -52,11 +60,6 @@ if (isset($_POST["submit"])){
     }else{
         header('location: ../login.php?error=wronglogin');
     }
-
-
-
-
-    exit();
 
 }else{
     header('location: ../login.php');

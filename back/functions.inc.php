@@ -43,18 +43,18 @@ function getUserIpAddr()
 
 
 //ADD USER INFORMATIONS IN TABLE
-function addUser($conn, $email, $ip_usr, $connect_time)
+function addUser($conn, $email, $ip_usr, $connect_time, $username)
 {
 
 
-    $sql = "INSERT INTO `electroluxinside` (email, ip_usr, connect_time) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO `electroluxinside` (email, ip_usr, connect_time, username) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header('location: ../login.php?error=stmtfailed');
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sss", $email, $ip_usr, $connect_time);
+    mysqli_stmt_bind_param($stmt, "ssss", $email, $ip_usr, $connect_time, $username);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
