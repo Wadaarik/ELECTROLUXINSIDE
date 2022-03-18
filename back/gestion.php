@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dbUsername= "root";
 $dbPassword = "";
-$dbName = "electrolux__adm";
+$dbName = "";
 
 $conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
